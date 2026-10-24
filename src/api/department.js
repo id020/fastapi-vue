@@ -11,7 +11,7 @@ export function getDepartmentList() {
 // 获取部门详情
 export function getDepartmentDetail(id) {
     return request({
-        url: `/departments/${id}`,
+        url: `/department/departments/${id}`,
         method: 'get',
     })
 }
@@ -19,7 +19,7 @@ export function getDepartmentDetail(id) {
 // 新增部门
 export function createDepartment(data) {
     return request({
-        url: '/departments',
+        url: '/department/departments',
         method: 'post',
         data,
     })
@@ -28,7 +28,7 @@ export function createDepartment(data) {
 // 更新部门
 export function updateDepartment(id, data) {
     return request({
-        url: `/departments/${id}`,
+        url: `/department/departments/${id}`,
         method: 'put',
         data,
     })
@@ -37,7 +37,7 @@ export function updateDepartment(id, data) {
 // 删除部门
 export function deleteDepartment(id) {
     return request({
-        url: `/departments/${id}`,
+        url: `/department/departments/${id}`,
         method: 'delete',
     })
 }

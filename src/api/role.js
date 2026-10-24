@@ -12,7 +12,7 @@ export function getRoleList(params = {}) {
 // 获取角色详情
 export function getRoleDetail(id) {
     return request({
-        url: `/roles/${id}`,
+        url: `/role/roles/${id}`,
         method: 'get',
     })
 }
@@ -20,7 +20,7 @@ export function getRoleDetail(id) {
 // 新增角色
 export function createRole(data) {
     return request({
-        url: '/roles',
+        url: '/role/roles',
         method: 'post',
         data,
     })
@@ -29,7 +29,7 @@ export function createRole(data) {
 // 更新角色
 export function updateRole(id, data) {
     return request({
-        url: `/roles/${id}`,
+        url: `/role/roles/${id}`,
         method: 'put',
         data,
     })
@@ -38,7 +38,7 @@ export function updateRole(id, data) {
 // 删除角色
 export function deleteRole(id) {
     return request({
-        url: `/roles/${id}`,
+        url: `/role/roles/${id}`,
         method: 'delete',
     })
 }

@@ -1,7 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import {useAuthStore} from '@/stores/auth'
 import Dashboard from '@/views/Dashboard.vue'
-import Users from "@/views/Users.vue";
+import Users from '@/views/Users.vue'
+import Roles from '@/views/Roles.vue'
+import Departments from '@/views/Departments.vue'
+import Menus from '@/views/Menus.vue'
 
 
 /**
@@ -25,19 +28,10 @@ const pageComponents = {
     Dashboard,
 
     // 用户管理页面
-    Users: Users,
-
-    // // 角色管理页面
-    // Roles: ResourcePage,
-    //
-    // // 部门管理页面
-    // Departments: ResourcePage,
-    //
-    // // 菜单管理页面
-    // Menus: ResourcePage,
-    //
-    // // 操作记录页面
-    // Records: ResourcePage,
+    Users,
+    Roles,
+    Departments,
+    Menus,
 }
 
 
@@ -52,10 +46,7 @@ const router = createRouter({
             path: '/',
             name: 'Layout',
             component: () => import('@/layouts/Layout.vue'),
-            children: [
-                { path: 'dashboard', name: 'Dashboard', component: () => import('@/views/Dashboard.vue') },
-                { path: 'users', name: 'User', component: () => import('@/views/Users.vue') },
-            ],
+            children: [],
         },
         { path: '/login', name: 'Login', component: () => import('@/views/Login.vue') },
         { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/views/NotFound.vue') },
@@ -187,8 +178,8 @@ router.beforeEach(async (to) => {
              * meta：
              * 附加路由信息，方便页面标题和权限检查。
              */
-            router.addRoute({
-                path: menu.path,
+            router.addRoute('Layout', {
+                path: menu.path.replace(/^\//, ''),
                 name: routeName,
                 component,
 

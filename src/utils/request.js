@@ -13,7 +13,16 @@ request.interceptors.request.use((config) => {
 
 // 返回拦截器
 request.interceptors.response.use(
-    (response) => response,
+    (response) => {
+        // FastAPI 的业务异常使用 HTTP 200 包装；将业务错误转换为拒绝态，
+        // 让页面统一进入错误提示分支。
+        if (Number(response.data?.code) >= 400) {
+            const error = new Error(response.data?.message || '请求失败')
+            error.response = response
+            return Promise.reject(error)
+        }
+        return response
+    },
     (error) => {
         // 令牌失效时清理本地登录状态，路由守卫会引导用户重新登录。
         if (error.response?.status === 401) {
