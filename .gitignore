@@ -1,0 +1,48 @@
+
+# 依赖目录
+node_modules/
+
+# 构建产物
+dist/
+dist-ssr/
+*.local
+
+# 环境变量（保留示例文件）
+.env
+.env.*
+!.env.example
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# 测试与覆盖率
+coverage/
+.nyc_output/
+
+# 缓存目录
+.vite/
+.eslintcache
+.stylelintcache
+.cache/
+
+# IDE：IntelliJ IDEA / WebStorm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 临时文件
+*.tmp
+*.swp
+*.swo
